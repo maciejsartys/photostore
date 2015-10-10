@@ -1,9 +1,28 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//npm install jsonwebtoken --savevar favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+//models
+
+var Sequelize = require('sequelize');
+
+var sequelize = new Sequelize('photoStore', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+});
+
+
+
+//routes
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -12,7 +31,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
