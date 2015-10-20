@@ -25,14 +25,14 @@ exports.logIn = function(req, res, next) {
 };
 
 exports.register = function(req, res, next) {
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username || !req.body.password || !req.body.email) {
         return res.status(400).json({
             message: 'Please fill out all fields'
         });
     }
 
-    var user = models.User.build(req.body.username);
-
+    var user = models.User.build(req.body);
+    console.log(req.body);
     user.setPassword(req.body.password);
 
     user.save().then(function(user) {
@@ -41,3 +41,11 @@ exports.register = function(req, res, next) {
         });
     });
 };
+
+
+exports.getAll = function(req, res, next) {
+    var User = models.User;
+    User.findAll().then(function(users){
+        res.json(users);
+    })
+}

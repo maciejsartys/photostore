@@ -17,6 +17,8 @@
     "mysql": "^2.9.0",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^2.47.0",
     "sequelize": "^3.11.0",
     "sequelize-cli": "^1.9.1",
     "serve-favicon": "~2.3.0"

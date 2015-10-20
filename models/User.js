@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
             unique: true
         },
         hash: DataTypes.STRING,
-        salt: DataTypes.STRING
+        salt: DataTypes.STRING,
+        email: DataTypes.STRING
         }, {
         instanceMethods: {
             setPassword: function(password) {
