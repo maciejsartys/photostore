@@ -20,5 +20,9 @@ app.controller('AuthController', ['$scope', '$location', 'auth',
                 $scope.error = err.data;
             });
         };
+
+        $scope.currentUser = function() {
+            return $scope.user;
+        }
     }
 ]);

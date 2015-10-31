@@ -1,13 +1,13 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "photoStore",
+    "username": "photostore",
+    "password": "photo_store",
+    "database": "photostore",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "photostore",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
