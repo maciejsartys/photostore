@@ -1,5 +1,5 @@
 /* global app */
-
+(function() {
 app.controller('NavController', ['$scope', 'auth',
     function($scope, auth) {
     	$scope.test = "test";
@@ -8,4 +8,4 @@ app.controller('NavController', ['$scope', 'auth',
         $scope.currentUser = auth.currentUser();
     }
 ]);
-
+})()

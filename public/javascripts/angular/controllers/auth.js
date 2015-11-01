@@ -1,5 +1,5 @@
 /*global app*/
-
+(function() {
 app.controller('AuthController', ['$scope', '$location', 'auth',
     function($scope, $location, auth) {
 
@@ -26,3 +26,4 @@ app.controller('AuthController', ['$scope', '$location', 'auth',
         }
     }
 ]);
+})()
