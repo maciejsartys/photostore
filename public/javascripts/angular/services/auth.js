@@ -1,9 +1,11 @@
 /* global app */
+
 (function() {
   app.factory('auth', ['$http', '$window', function($http, $window) {
     var auth = {};
 
     auth.saveToken = function(token) {
+      auth.username = auth.decodeUsername(token);
       $window.localStorage['photoStoreToken'] = token;
     }
 
@@ -15,8 +17,13 @@
       var token = auth.getToken();
 
       if (token) {
-        var payload = JSON.parse($window.atob(token.split('.')[1]));
-
+        try {
+          var payload = auth.decodeUsername(token);
+        }
+        catch (e) {
+          this.logOut();
+          return false;
+        }
         return payload.exp > Date.now() / 1000;
       }
       else {
@@ -41,7 +48,7 @@
     auth.currentUser = function() {
       if (auth.isLoggedIn()) {
         var token = auth.getToken();
-        var payload = JSON.parse($window.atob(token.split('.')[1]));
+        var payload = this.decodeUsername(token);
 
         return payload.username;
       }
@@ -51,6 +58,11 @@
       $window.localStorage.removeItem('photoStoreToken');
     };
 
+    auth.decodeUsername = function(token) {
+      return JSON.parse($window.atob(token.split('.')[1]));
+    }
+
     return auth;
+    
   }]);
 })()
