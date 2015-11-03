@@ -5,7 +5,7 @@ function($routeprovider) {
   $routeprovider
   .when('/index', {
     templateUrl: './views/index.html',
-    controller: "MainController"
+    controller: "CatalogueController"
   })
   .when('/register', {
     templateUrl: "./views/register.html",
