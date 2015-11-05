@@ -8,7 +8,6 @@ app.controller('NavController', ['$scope', 'auth',
         $scope.currentUser = auth.currentUser();
         
         $scope.$on('userLoggedIn', function(user) {
-            console.log(new Date() + 'recieved');
             $scope.currentUser = auth.currentUser();
         });
     }
