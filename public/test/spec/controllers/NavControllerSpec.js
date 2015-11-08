@@ -7,7 +7,11 @@
         var $scope, auth;
 
         auth = {
-            'currentUser': function() {return "testUser" }
+            currentUser: function() {
+            return {
+              username: 'testuser',
+              email: 'testuser@test.com'
+            }}
         };
 
         beforeEach(module('photoStore'));
@@ -24,7 +28,7 @@
         })});
 
         it('show show current user if logged in', function() {
-            expect($scope.currentUser).toBe("testUser");
+            expect($scope.currentUser.username).toBe('testuser');
         });
     });
 })()
