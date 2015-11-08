@@ -15,6 +15,10 @@ function($routeprovider) {
     templateUrl: './views/login.html',
     controller: "AuthController"
   })
+  .when('/account', {
+    templateUrl: './views/userPanel/accountDetails.html',
+    controller: 'AccountController'
+  })
   .otherwise({
     redirectTo: '/index'
   });

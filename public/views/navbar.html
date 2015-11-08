@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="#"><i class="fa fa-camera"></i> Photostore</a>
   </div>
   <ul class="nav navbar-nav">
-    <li ng-show="isLoggedIn()"><a href="#" ng-click="goToUser()">Current user: {{ currentUser }}</a></li>
+    <li ng-show="isLoggedIn()"><a href="#" ng-click="goToUserAccount()">Current user: {{ currentUser }}</a></li>
     <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
     <li ng-hide="isLoggedIn()"><a href="/#/login">Login</a></li>
   </ul>
