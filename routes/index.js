@@ -4,7 +4,7 @@ var controllers = require('../controllers');
 var models = require('../models');
 var jwt = require('express-jwt');
 var auth = jwt({
-    secret: 'SECRET',
+    secret: 'SECRET_TOKEN',
     userProperty: 'payload'
 });
 
@@ -26,5 +26,9 @@ router.get('/users/jwt', function(req, res ,next) {
     return res.json({jwt: user.generateJWT()});
 });
 
+router.get('/users/:username/private', auth, controllers.user.getPrivateData);
+router.get('/users/:username/public', controllers.user.getPublicData);
+
+require('./document')(router.stack, 'express');
 
 module.exports = router;

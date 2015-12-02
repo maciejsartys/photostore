@@ -1,14 +1,15 @@
-<div ng-controller="UserPanel">
+<div>
   <h1>Account details</h1>
   <div class="panel-header">
     <h2>User Details</h2>
   </div>
-  <div class="panel-rows">
-    <div class="row">
+  <div class="panel-rows well">
+      <div>
+      {{ err }}
       <span>username:</span>
       {{ user.username }}
     </div>
-    <div class="row">
+    <div>
       <span>e-mail:</span>
       {{ user.email }}
     </div>

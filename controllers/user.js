@@ -49,3 +49,16 @@ exports.getAll = function(req, res, next) {
         res.json(users);
     })
 }
+
+exports.getPrivateData = function(req, res, next) {
+  var User = models.User;
+  User.findOne({ where: { username: req.params.username } })
+  .then(function success(user) {
+    console.log(req.payload);
+    res.json(user);
+  });
+}
+
+exports.getPublicData = function(req, res, next) {
+  res.json({"publicData": true});
+}

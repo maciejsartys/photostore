@@ -8,10 +8,8 @@
 
         auth = {
             currentUser: function() {
-            return {
-              username: 'testuser',
-              email: 'testuser@test.com'
-            }},
+            return 'testuser'
+          },
             isLoggedIn: function() {
               return true;
             }
